@@ -1,78 +1,102 @@
-using System;
+//using System;   
+//namespace ProjectA
+//{
+//	class Calculator
+//	{
+//		public void a()
+//		{
+//			Console.WriteLine("subtraction");
+//		}
+//	}
+//}
+//namespace ProjectB
+//{
+//	class Calculator
+//	{
+//		public void b()
+//		{
+//			Console.WriteLine("addition");
+//		}
+//	}
+//}
+//class Program
+//{
+//	static void Main()
+//	{
+//		ProjectA.Calculator calc1 = new ProjectA.Calculator();
+//		ProjectB.Calculator calc2 = new ProjectB.Calculator();
+//		calc1.a();
+//		calc2.b();
 
-class function
+//	}
+//}
+
+
+
+//using System; 
+//class Program
+//{
+//	static void Main()
+//	{
+//		int age = 21;
+//		string Name = "Joshika";
+//		int num8 = 8;
+//		double _salary = 50000;
+//		Console.WriteLine($"Age: {age}\n Name: {Name}\n Salary: {_salary}\n Number:{num8}");
+//	}
+
+//}
+
+
+
+
+#define DEBUG   
+
+#define TEST 
+
+ 
+
+#undef TEST
+
+using System; 
+
+namespace PreprocessorDemo
 {
-    public void demo()
-    {
-        int num = 100;
-        double d = num;   // Implicit conversion
 
-        Console.WriteLine(d); // 100
-    }
-}
+	class Program
+	{
 
-class function_2
-{
-    public void demo()
-    {
-        double d = 9.78;
-        int i = (int)d;   // Explicit conversion (casting)
+		static void Main(string[] args)
+		{
 
-        Console.WriteLine(i); // 9
-    }
-}
+			#region Startup Code 
 
-class function_3
-{
-    public void demo()
-    {
-        object obj = "Hello World";
-        string str = obj as string;  // "as" operator
+			Console.WriteLine("Program Started");
 
-        Console.WriteLine(str); // Hello World
-    }
-}
+			#endregion
 
-class function_4
-{
-    public void demo()
-    {
-        object obj = "Joshika";
-        if (obj is string)    // "is" operator
-        {
-            Console.WriteLine("obj is a string");
-        }
-    }
-}
+#if (DEBUG)
 
-class function_5
-{
-    public void demo()
-    {
-        string strNum = "123";
-        int num = Convert.ToInt32(strNum); // Using Convert class
+			Console.WriteLine("Debug mode is ON");
 
-        Console.WriteLine(num + 1); // 124
-    }
-}
+#elif (TEST)
 
-class Program
-{
-    public static void Main()
-    {
-        function ex1 = new function();
-        ex1.demo();
+                Console.WriteLine("Test mode is ON"); 
 
-        function_2 ex2 = new function_2();
-        ex2.demo();
+#else
 
-        function_3 ex3 = new function_3();
-        ex3.demo();
+                Console.WriteLine("Release mode is ON"); 
 
-        function_4 ex4 = new function_4();
-        ex4.demo();
+#endif
 
-        function_5 ex5 = new function_5();
-        ex5.demo();
-    }
+
+
+#warning This is just a demo warning 
+
+			Console.WriteLine("Program Ended");
+
+		}
+
+	}
+
 }
